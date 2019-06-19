@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="wrapper">
+        <div class="container">
+            <div class="banner">
+                <div class="banner__title">
+                    <span class="banner__icon"></span>
+                    <h1 class="banner__descr">Датчик <br> спокойствия</h1>
+                </div>
+                <div class="banner__subtitle">
+                    <p>Комплекс из камеры и мобильного приложения,
+                        который помогает в любой момент убедиться, что с
+                        близкими и домом всё в порядке.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+    // @ is an alias to /src
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+
+    export default {
+        name: 'home',
+        components: {}
+    }
 </script>
