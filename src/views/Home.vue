@@ -12,6 +12,9 @@
                         близкими и домом всё в порядке.</p>
                 </div>
             </div>
+            <div class="buy">
+                <h3 class="section-title">Приобрести</h3>
+            </div>
         </div>
     </div>
 </template>
