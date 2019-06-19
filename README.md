@@ -1,4 +1,4 @@
-# datatable
+# sens_camera
 
 ## Project setup
 ```
