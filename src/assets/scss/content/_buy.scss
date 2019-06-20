@@ -25,6 +25,16 @@
     border-radius: 18px;
     background: linear-gradient(180deg, #8CB928 0%, #45AE4D 100%);
     box-shadow: 0px 25px 100px #48AE4B;
+
+    @include breakpoint(max-width 990px) {
+      margin-top: 15px;
+      width: calc(50% - 18px);
+    }
+
+    @include breakpoint(max-width 440px) {
+      margin-top: 15px;
+      width: calc(100% - 18px);
+    }
   }
 
   &__icon {

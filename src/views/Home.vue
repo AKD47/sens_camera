@@ -12,6 +12,25 @@
                         близкими и домом всё в порядке.</p>
                 </div>
             </div>
+            <div class="type">
+                <a @click="showModal" class="type__item">
+                    <div class="type__wrapper">
+                        <span class="type__photo">
+                            <img src="../assets/images/camera.png" alt="Camera">
+                        </span>
+                    </div>
+                    <span class="type__link">Подробнее</span>
+                </a>
+                <app-modal-left v-show="isModalVisible" @close="closeModal"></app-modal-left>
+                <a href="#" class="type__item">
+                    <div class="type__wrapper">
+                        <span class="type__photo">
+                            <img src="../assets/images/camera.png" alt="Camera">
+                        </span>
+                    </div>
+                    <span class="type__link">Подробнее</span>
+                </a>
+            </div>
             <div class="buy">
                 <h3 class="section-title">Приобрести</h3>
                 <div class="buy__box">
@@ -36,8 +55,8 @@
             <div class="order">
                 <form action="" id="order-form" class="order__form">
                     <p>Оставьте заявку, и мы позвоним вам в ближайшее время</p>
-                    <input id="form-phone" type="text" value="" min-length="10" max-length="10">
-
+                    <masked-input v-model="phone" value="" mask="\+\7 111 111 1111" placeholder="+7 ___ ___ ____" />
+                    <button type="submit">отправить заявку</button>
                 </form>
             </div>
         </div>
@@ -46,17 +65,27 @@
 
 <script>
     // @ is an alias to /src
-
-
+    import MaskedInput from 'vue-masked-input';
+    import AppModalLeft from '@/components/AppModalLeft';
     export default {
         data() {
             return {
-
+                value: '',
+                isModalVisible: false,
             }
         },
         name: 'home',
-        components: {},
+        components: {
+            MaskedInput,
+            AppModalLeft
+        },
         methods: {
+            showModal() {
+                this.isModalVisible = true;
+            },
+            closeModal() {
+                this.isModalVisible = false;
+            },
             addPhone () {
                 let phone = document.getElementById('form-phone');
 
