@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="type">
-                <a @click="showModal" class="type__item">
+                <a @click="showLeftModal" class="type__item">
                     <div class="type__wrapper">
                         <span class="type__photo">
                             <img src="../assets/images/camera.png" alt="Camera">
@@ -21,7 +21,7 @@
                     </div>
                     <span class="type__link">Подробнее</span>
                 </a>
-                <app-modal-left v-show="isModalVisible" @close="closeModal"></app-modal-left>
+                <app-modal-left v-show="isLeftModalVisible" @close="closeLeftModal"></app-modal-left>
                 <a href="#" class="type__item">
                     <div class="type__wrapper">
                         <span class="type__photo">
@@ -71,7 +71,7 @@
         data() {
             return {
                 value: '',
-                isModalVisible: false,
+                isLeftModalVisible: false,
             }
         },
         name: 'home',
@@ -80,11 +80,11 @@
             AppModalLeft
         },
         methods: {
-            showModal() {
-                this.isModalVisible = true;
+            showLeftModal() {
+                this.isLeftModalVisible = true;
             },
-            closeModal() {
-                this.isModalVisible = false;
+            closeLeftModal() {
+                this.isLeftModalVisible = false;
             },
             addPhone () {
                 let phone = document.getElementById('form-phone');

@@ -1,32 +1,44 @@
 <template id="modal">
     <transition name="modal-fade">
         <div class="modal-backdrop" role="dialog">
-            <div class="modal" ref="modal">
-                <header class="modal-header">
-                    <slot name="header">
-                        <h2>
-                            This is the default tile!
-                        </h2>
-
-                        <button type="button" class="btn-close btn-right" @click="close" aria-label="Close modal">
-                            x
-                        </button>
-                    </slot>
-                </header>
-
-                <section class="modal-body">
-                    <slot name="body">
-                        I'm the default body!
-                    </slot>
+            <div class="modal modal--left" ref="modal">
+                <section class="modal__wrapper">
+                    <div class="modal__item">
+                        <span class="modal__icon">
+                            <img src="../assets/images/union-icon.svg" alt="icon">
+                        </span>
+                        <p class="modal__descr">Работает по Wi-Fi или кабелю</p>
+                    </div>
+                    <div class="modal__item">
+                        <span class="modal__icon">
+                            <img src="../assets/images/union2-icon.svg" alt="icon">
+                        </span>
+                        <p class="modal__descr">Разрешение 1280х960 (HD)</p>
+                    </div>
+                    <div class="modal__item">
+                        <span class="modal__icon">
+                             <img src="../assets/images/union3-icon.svg" alt="icon">
+                        </span>
+                        <p class="modal__descr">Ночная съемка</p>
+                    </div>
+                    <div class="modal__item">
+                        <span class="modal__icon">
+                            <img src="../assets/images/union4-icon.svg" alt="icon">
+                        </span>
+                        <p class="modal__descr">Запись звука и видео</p>
+                    </div>
+                    <div class="modal__item">
+                        <span class="modal__icon">
+                            <img src="../assets/images/union5-icon.svg" alt="icon">
+                        </span>
+                        <p class="modal__descr">Угол обзора 100°</p>
+                    </div>
+                    <div class="modal__item">
+                        <span class="modal__icon"></span>
+                        <p class="modal__descr">Длина кабеля 1.5 метра</p>
+                    </div>
+                    <button type="button" class="modal__close" @click="closeModal" aria-label="Close modal"></button>
                 </section>
-
-                <footer class="modal-footer">
-                    <slot name="footer">
-                        <button type="button" class="btn btn-green" @click="close" aria-label="Close modal">
-                            Close me!
-                        </button>
-                    </slot>
-                </footer>
             </div>
         </div>
     </transition>
@@ -36,7 +48,7 @@
     export default {
         name: "app-modal-left",
         methods: {
-            close(event) {
+            closeModal(event) {
                 this.$emit('close');
             },
         },
