@@ -2,6 +2,8 @@
     <transition name="modal-fade">
         <div class="modal-backdrop" role="dialog">
             <div class="modal modal--left" ref="modal">
+                <button type="button" class="modal__close" @click="closeModal" aria-label="Close modal"></button>
+
                 <section class="modal__wrapper">
                     <div class="modal__item">
                         <span class="modal__icon">
@@ -37,7 +39,6 @@
                         <span class="modal__icon"></span>
                         <p class="modal__descr">Длина кабеля 1.5 метра</p>
                     </div>
-                    <button type="button" class="modal__close" @click="closeModal" aria-label="Close modal"></button>
                 </section>
             </div>
         </div>

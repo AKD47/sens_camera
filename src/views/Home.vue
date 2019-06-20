@@ -22,7 +22,7 @@
                     <span class="type__link">Подробнее</span>
                 </a>
                 <app-modal-left v-show="isLeftModalVisible" @close="closeLeftModal"></app-modal-left>
-                <a href="#" class="type__item">
+                <a @click="showRightModal" class="type__item">
                     <div class="type__wrapper">
                         <span class="type__photo">
                             <img src="../assets/images/camera.png" alt="Camera">
@@ -30,6 +30,7 @@
                     </div>
                     <span class="type__link">Подробнее</span>
                 </a>
+                <app-modal-right v-show="isRightModalVisible" @close="closeRightModal"></app-modal-right>
             </div>
             <div class="buy">
                 <h3 class="section-title">Приобрести</h3>
@@ -67,17 +68,20 @@
     // @ is an alias to /src
     import MaskedInput from 'vue-masked-input';
     import AppModalLeft from '@/components/AppModalLeft';
+    import AppModalRight from '@/components/AppModalRight';
     export default {
         data() {
             return {
                 value: '',
                 isLeftModalVisible: false,
+                isRightModalVisible: false
             }
         },
         name: 'home',
         components: {
             MaskedInput,
-            AppModalLeft
+            AppModalLeft,
+            AppModalRight
         },
         methods: {
             showLeftModal() {
@@ -85,6 +89,12 @@
             },
             closeLeftModal() {
                 this.isLeftModalVisible = false;
+            },
+            showRightModal() {
+                this.isRightModalVisible = true;
+            },
+            closeRightModal() {
+                this.isRightModalVisible = false;
             },
             addPhone () {
                 let phone = document.getElementById('form-phone');
