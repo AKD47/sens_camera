@@ -60,6 +60,7 @@
                     <button type="submit">отправить заявку</button>
                 </form>
             </div>
+            <app-rew-slider></app-rew-slider>
         </div>
     </div>
 </template>
@@ -69,6 +70,7 @@
     import MaskedInput from 'vue-masked-input';
     import AppModalLeft from '@/components/AppModalLeft';
     import AppModalRight from '@/components/AppModalRight';
+    import AppRewSlider from '@/components/AppRewSlider';
     export default {
         data() {
             return {
@@ -81,7 +83,8 @@
         components: {
             MaskedInput,
             AppModalLeft,
-            AppModalRight
+            AppModalRight,
+            AppRewSlider
         },
         methods: {
             showLeftModal() {
