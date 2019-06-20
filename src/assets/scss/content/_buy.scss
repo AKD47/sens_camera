@@ -2,4 +2,68 @@
   position: relative;
   float: left;
   width: 100%;
+
+  &__box {
+    @include display-flex(flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    position: relative;
+    float: left;
+    width: 100%;
+  }
+
+  &__item {
+    @include display-flex(flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(column);
+    @include align-items(center);
+    padding-top: 20px;
+    box-sizing: border-box;
+    width: calc(25% - 18px);
+    height: 214px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #8CB928 0%, #45AE4D 100%);
+    box-shadow: 0px 25px 100px #48AE4B;
+  }
+
+  &__icon {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 121px;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    &--first {
+      background-image: url('assets/images/camera_icon.svg');
+    }
+
+    &--second {
+      background-image: url('assets/images/ras_icon.svg');
+    }
+
+    &--third {
+      background-image: url('assets/images/camera_third_icon.svg');
+    }
+
+    &--fourth {
+      background-image: url('assets/images/camera_four_icon.svg');
+    }
+  }
+
+  &__descr {
+    width: 100%;
+    margin: 0;
+    margin-top: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 23px;
+
+    > span {
+      font-size: 18px;
+    }
+  }
 }

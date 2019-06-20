@@ -8,8 +8,8 @@
   border-radius: 18px;
   background-image: url('assets/images/top-banner.png');
   background-repeat: no-repeat;
-  -webkit-background-size: 100%;
-  background-size: 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
   
   @include breakpoint(max-width 990px) {
     -webkit-background-size: cover;
