@@ -54,10 +54,13 @@
                 </div>
             </div>
             <div class="order">
-                <form action="" id="order-form" class="order__form">
-                    <p>Оставьте заявку, и мы позвоним вам в ближайшее время</p>
-                    <masked-input v-model="phone" value="" mask="\+\7 111 111 1111" placeholder="+7 ___ ___ ____" />
-                    <button type="submit">отправить заявку</button>
+                <form action="" id="order-form" @submit.prevent="addPhone" autocomplete="off" class="order__form">
+                    <h3 class="order__title">Оставьте заявку, и мы позвоним вам <br> в ближайшее время</h3>
+                    <masked-input id="phone" v-model="phone" value="" mask="\+\7 111 111 1111" placeholder="+7 ___ ___ ____" />
+                    <button class="order__submit" type="submit">
+                        <span class="order__submit--title">отправить заявку</span>
+                        <span class="order__submit--icon"></span>
+                    </button>
                 </form>
             </div>
             <app-rew-slider></app-rew-slider>
@@ -100,8 +103,8 @@
                 this.isRightModalVisible = false;
             },
             addPhone () {
-                let phone = document.getElementById('form-phone');
-
+                let phone = document.getElementById('phone');
+                console.log(phone.value);
             }
         }
     }
