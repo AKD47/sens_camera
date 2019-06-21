@@ -3,7 +3,7 @@
   @include justify-content(center);
   @include align-items(center);
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   bottom: 0;
   left: 0;
@@ -20,7 +20,7 @@
   border-radius: 18px;
   padding: 40px;
   box-sizing: border-box;
-  z-index: 2;
+  z-index: 4;
   width: 50%;
 
   @include breakpoint(max-width 990px) {
