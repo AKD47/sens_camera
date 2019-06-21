@@ -112,6 +112,15 @@
             addPhone: function () {
                 let phone = document.getElementById('phone');
                 console.log(phone.value);
+                let newPhone = {
+                   'phone': this.phone
+                };
+                this.$http.put('/bins/:id', newPhone).then((response) => {
+                    console.log(response.data);
+                }).catch((error) =>{
+                    console.log(error)
+                });
+
             },
             onFocus: function () {
                 let wrapper = document.getElementById('phone-wrapper');
