@@ -56,7 +56,13 @@
             <div class="order">
                 <form action="" id="order-form" @submit.prevent="addPhone" autocomplete="off" class="order__form">
                     <h3 class="order__title">Оставьте заявку, и мы позвоним вам <br> в ближайшее время</h3>
-                    <masked-input id="phone" v-model="phone" value="" mask="\+\7 111 111 1111" placeholder="+7 ___ ___ ____" />
+                    <div id="phone-wrapper" class="order__wrapper" @click="onFocus">
+                        <masked-input id="phone" class="order__field"  v-model="phone" value=""
+                                      mask="\+\7 111 111 1111" placeholder="+7 ___ ___ ____"/>
+                    </div>
+
+
+                    <!--<input type="text" @focus="onFocus" @blur="onBlur">-->
                     <button class="order__submit" type="submit">
                         <span class="order__submit--title">отправить заявку</span>
                         <span class="order__submit--icon"></span>
@@ -74,6 +80,7 @@
     import AppModalLeft from '@/components/AppModalLeft';
     import AppModalRight from '@/components/AppModalRight';
     import AppRewSlider from '@/components/AppRewSlider';
+
     export default {
         data() {
             return {
@@ -90,21 +97,25 @@
             AppRewSlider
         },
         methods: {
-            showLeftModal() {
+            showLeftModal: function () {
                 this.isLeftModalVisible = true;
             },
-            closeLeftModal() {
+            closeLeftModal: function () {
                 this.isLeftModalVisible = false;
             },
-            showRightModal() {
+            showRightModal: function () {
                 this.isRightModalVisible = true;
             },
-            closeRightModal() {
+            closeRightModal: function () {
                 this.isRightModalVisible = false;
             },
-            addPhone () {
+            addPhone: function () {
                 let phone = document.getElementById('phone');
                 console.log(phone.value);
+            },
+            onFocus: function () {
+                let wrapper = document.getElementById('phone-wrapper');
+                wrapper.classList.add('order__wrapper--focus');
             }
         }
     }
