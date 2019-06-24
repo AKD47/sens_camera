@@ -2,7 +2,7 @@
     <div class="rew">
         <h3 class="section-title">Отзывы</h3>
         <div id="rew-slider"  class="rew__slider">
-            <div v-for="slide in slides"  v-bind:class="['rew__item', (slide.isActive) ? 'rew__item--active': '']">
+            <div v-for="slide in slides" v-bind:class="['rew__item', (slide.isActive) ? 'rew__item--active': '']">
                 <div class="rew__avatar">
                     <img src="../assets/images/ic-avatar.png" alt="ava">
                 </div>
