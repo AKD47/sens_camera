@@ -29,6 +29,7 @@
     z-index: 1;
     opacity: 1;
     transform: scale(1);
+    @include transition(0.4s);
   }
 
   &__item:not(.rew__item--active) {
@@ -42,6 +43,7 @@
     padding: 20px;
     box-sizing: border-box;
     transform: scale(0.8);
+    @include transition(0.4s);
   }
 
   &__avatar {
