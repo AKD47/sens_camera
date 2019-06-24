@@ -29,9 +29,9 @@
 
   @include breakpoint(max-width 660px) {
     width: 90%;
-    padding: 10px;
-    max-height: 200px;
-    overflow-x: scroll;
+    //padding: 10px;
+    //max-height: 200px;
+    //overflow-x: scroll;
   }
 
   &--left {
@@ -102,6 +102,13 @@
     width: 100%;
     position: relative;
     float: left;
+
+    @include breakpoint(max-width 660px) {
+      //width: 90%;
+      ////padding: 10px;
+      max-height: 200px;
+      overflow-x: scroll;
+    }
   }
 
   &__item {
