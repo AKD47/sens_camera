@@ -55,15 +55,18 @@
             </div>
             <div class="order">
                 <form action="" id="order-form" @submit.prevent="addPhone" autocomplete="off" class="order__form">
-                    <h3 class="order__title">Оставьте заявку, и мы позвоним вам <br> в ближайшее время</h3>
-                    <div id="phone-wrapper" class="order__wrapper" @click="onFocus">
-                        <masked-input id="phone" class="order__field"  v-model="phone" value=""
-                                      mask="\+\7 111 111 1111" placeholder="+7 ___ ___ ____"/>
+                    <div class="order__top" v-if="!isNoteVisible">
+                        <h3 class="order__title">Оставьте заявку, и мы позвоним вам <br> в ближайшее время</h3>
+                        <div id="phone-wrapper" class="order__wrapper" @click="onFocus">
+                            <masked-input id="phone" class="order__field"  v-model="phone" value=""
+                                          mask="\+\7 111 111 1111" placeholder="+7 ___ ___ ____"/>
+                        </div>
+                        <div id="phone-alert" class="order__alert">Проверьте набранный номер</div>
                     </div>
-
-
-                    <!--<input type="text" @focus="onFocus" @blur="onBlur">-->
-                    <button class="order__submit" type="submit">
+                    <div v-else id="phone-note" class="order__note">
+                        <h3 class="order__title">Спасибо, что оставили заявку. <br> Мы скоро вам перезвоним.</h3>
+                    </div>
+                    <button id="phone-submit" class="order__submit" type="submit">
                         <span class="order__submit--title">отправить заявку</span>
                         <span class="order__submit--icon"></span>
                     </button>
@@ -86,7 +89,8 @@
             return {
                 value: '',
                 isLeftModalVisible: false,
-                isRightModalVisible: false
+                isRightModalVisible: false,
+                isNoteVisible: false
             }
         },
         name: 'home',
@@ -111,16 +115,30 @@
             },
             addPhone: function () {
                 let phone = document.getElementById('phone');
-                console.log(phone.value);
+                let submit = document.getElementById('phone-submit');
+                let wrapper = document.getElementById('phone-wrapper');
+                let alert = document.getElementById('phone-alert');
+                // console.log(phone.value);
                 let newPhone = {
-                   'phone': this.phone
+                    'phone': this.phone
                 };
-                this.$http.put('/bins/:id', newPhone).then((response) => {
-                    console.log(response.data);
-                }).catch((error) =>{
-                    console.log(error)
-                });
 
+                if ( phone.value.includes( '_' ) ) {
+                    // console.log(111);
+                    wrapper.classList.remove('order__wrapper--focus');
+                    wrapper.classList.add('order__wrapper--error');
+                    alert.classList.add('order__alert--visible');
+                } else {
+                    wrapper.classList.remove('order__wrapper--error');
+                    wrapper.classList.add('order__wrapper--focus');
+                    alert.classList.remove('order__alert--visible');
+                    submit.classList.add('order__submit--default');
+                    this.$http.put('/phones', newPhone).then((response) => {
+                        this.isNoteVisible = true;
+                    }).catch((error) =>{
+                        console.log(error)
+                    });
+                }
             },
             onFocus: function () {
                 let wrapper = document.getElementById('phone-wrapper');
