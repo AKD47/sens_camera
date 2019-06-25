@@ -22,6 +22,14 @@
     position: relative;
     float: left;
     height: 216px;
+
+    @include breakpoint(max-width 660px) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__note {
@@ -36,6 +44,10 @@
       line-height: 42px;
       text-align: center;
       color: #313334;
+
+      @include breakpoint(max-width 440px) {
+        font-size: 20px;
+      }
     }
   }
 
@@ -60,6 +72,10 @@
     margin-bottom: 42px;
     padding: 0 22px;
     box-sizing: border-box;
+
+    @include breakpoint(max-width 440px) {
+      width: 100%;
+    }
 
     &:hover {
       border: 3px solid #47B247;
@@ -103,6 +119,10 @@
 
     &.order__alert--visible {
       display: block;
+
+      @include breakpoint(max-width 440px) {
+        bottom: inherit;
+      }
     }
 
     &:before{
@@ -167,6 +187,10 @@
       font-size: 22px;
       text-transform: uppercase;
       color: #FFFFFF;
+
+      @include breakpoint(max-width 440px) {
+        font-size: 18px;
+      }
     }
 
     &--icon {
